@@ -22,13 +22,14 @@ class BlogController extends AbstractController
     /**
      * @Route("/blog", name="app_default_blog", methods={"GET"})
      */
-    // Je ne peut pas indiquer   , methods={GET}  dans la route => erreur 500
-    //[Semantical Error] Couldn't find constant GET, method App\Controller\BlogController::blog() in
-    // F:\Projets-PHP\sf-blog\config/routes\../../src/Controller/ (which is being imported from
-    // "F:\Projets-PHP\sf-blog\config/routes/annotations.yaml").
-    // Make sure annotations are installed and enabled.
     public function blog()
     {
-        return $this->render('blog/index.html.twig');
+        return $this->render('blog/index.html.twig', [
+            'id'        => '1',
+            'title'     => 'Un titre de blog',
+            'content'   => 'Contenu de l article',
+            'image'     => 'https://picsum.photos/200/300',
+            'author'    => 'Jean-Pierre'
+        ]);
     }
 }
